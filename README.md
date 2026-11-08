@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Pasindu Ranasinghe — Full-Stack Developer Portfolio
 
-## Getting Started
+An ultra-modern, high-performance personal portfolio built for Full-Stack Software Engineers. Designed with a sleek Dark Mode aesthetic, interactive Bento grid, dynamic cursor glow aura, live interactive code simulation, and silky-smooth micro-interactions.
 
-First, run the development server:
+🌐 **Live GitHub Repository**: [https://github.com/Pasinduranasinghe2001/portfolio](https://github.com/Pasinduranasinghe2001/portfolio)
 
+---
+
+## ⚡ Tech Stack & Architecture
+
+- **Framework**: [Next.js 15+ (App Router)](https://nextjs.org) with Turbopack & React 19
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com) with custom glassmorphism, glowing accents & dark theme tokens
+- **Animations & Effects**: [Framer Motion](https://www.framer.com/motion/) & [Canvas-Confetti](https://www.npmjs.com/package/canvas-confetti)
+- **Icons**: [Lucide React](https://lucide.dev) & Custom SVG Vector Icons
+- **Font**: Geist Sans & Geist Mono by Vercel
+
+---
+
+## ✨ Features
+
+- 🌌 **Modern Dark & Sleek Bento Grid**: Visually stunning dashboard showcasing technical philosophy, architecture pipeline, production metrics, and interactive route handler sandbox.
+- 🚀 **Interactive Terminal & API Sandbox**: Live simulated API execution demonstrating sub-20ms latency and idempotent payload processing.
+- 💻 **Filterable Projects Matrix**: Categorize projects by *Full-Stack*, *Frontend*, *Backend / AI*, and *DevOps & Cloud*, complete with metrics, tags, and direct demo/GitHub links.
+- ⚡ **Dynamic Cursor Follower & Ambient Glow**: Subtle radial lighting and mouse-tracking aura for a modern high-end feel.
+- 🎯 **Interactive Contact Section**: Instant client validation, one-click email copying with tooltip feedback, and celebratory confetti effects upon submission.
+- 📱 **100% Mobile Responsive**: Seamlessly adapts across ultra-wide monitors, tablets, and smartphones with a custom mobile drawer navigation.
+- 🛠️ **Single Config File (`portfolioData.ts`)**: Effortlessly customize your name, bio, social links, skills, experiences, and projects in one organized file.
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the repository
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/Pasinduranasinghe2001/portfolio.git
+cd portfolio
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Install dependencies
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. Run development server
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Open [http://localhost:3000](http://localhost:3000) in your browser to view the application.
 
-## Learn More
+### 4. Build for Production
+```bash
+npm run build
+npm start
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🎨 Customization
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+All personal details, skills, projects, and work experience can be edited directly in:
+`src/data/portfolioData.ts`
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📄 License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is licensed under the MIT License - feel free to customize and use it for your personal brand!
