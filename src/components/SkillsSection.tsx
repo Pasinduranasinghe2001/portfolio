@@ -18,6 +18,8 @@ export default function SkillsSection() {
 
   const getCategoryIcon = (iconName: string) => {
     switch (iconName) {
+      case "Code":
+        return <Code className="w-5 h-5 text-indigo-400" />;
       case "Layout":
         return <Layout className="w-5 h-5 text-cyan-400" />;
       case "Server":
@@ -140,3 +142,4 @@ export default function SkillsSection() {
     </section>
   );
 }
+

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { portfolioData } from "@/data/portfolioData";
-import { GithubIcon, LinkedinIcon, TwitterIcon } from "@/components/SocialIcons";
+import { GithubIcon, LinkedinIcon } from "@/components/SocialIcons";
 import confetti from "canvas-confetti";
 import {
   Mail,
@@ -13,6 +13,8 @@ import {
   Check,
   Sparkles,
   MessageSquare,
+  Phone,
+  FileDown,
 } from "lucide-react";
 
 export default function ContactSection() {
@@ -62,11 +64,11 @@ export default function ContactSection() {
           <span>Get In Touch</span>
         </div>
         <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mb-4">
-          Let&apos;s Build Something Extraordinary
+          Let&apos;s Connect &amp; Collaborate
         </h2>
         <p className="text-zinc-400 max-w-xl text-sm sm:text-base">
-          Whether you have an upcoming project, technical inquiry, or want to
-          discuss full-stack architecture, my inbox is always open.
+          Currently open for **Software Engineering Internship** opportunities,
+          technical discussions, or collaborative projects.
         </p>
       </div>
 
@@ -78,11 +80,10 @@ export default function ContactSection() {
               Contact Information
             </h3>
             <p className="text-sm text-zinc-400 leading-relaxed mb-8">
-              Available for full-time senior engineering roles, startup advisory,
-              and selective contract projects.
+              Feel free to reach out directly via email, phone, or connect on LinkedIn.
             </p>
 
-            <div className="space-y-4 mb-8">
+            <div className="space-y-3.5 mb-8">
               {/* Email item */}
               <div className="p-3.5 rounded-2xl bg-zinc-900/60 border border-zinc-800/60 flex items-center justify-between">
                 <div className="flex items-center gap-3">
@@ -110,9 +111,25 @@ export default function ContactSection() {
                 </button>
               </div>
 
+              {/* Phone item */}
+              <a
+                href={`tel:${portfolioData.personal.phone.replace(/\s+/g, "")}`}
+                className="p-3.5 rounded-2xl bg-zinc-900/60 border border-zinc-800/60 flex items-center gap-3 hover:border-zinc-700 transition-colors"
+              >
+                <div className="p-2 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400">
+                  <Phone className="w-4 h-4" />
+                </div>
+                <div>
+                  <div className="text-[11px] text-zinc-500">Mobile Phone</div>
+                  <div className="text-xs font-mono font-medium text-zinc-200">
+                    {portfolioData.personal.phone}
+                  </div>
+                </div>
+              </a>
+
               {/* Location item */}
               <div className="p-3.5 rounded-2xl bg-zinc-900/60 border border-zinc-800/60 flex items-center gap-3">
-                <div className="p-2 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400">
+                <div className="p-2 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-400">
                   <MapPin className="w-4 h-4" />
                 </div>
                 <div>
@@ -141,9 +158,9 @@ export default function ContactSection() {
             </div>
           </div>
 
-          {/* Social Icons */}
-          <div>
-            <div className="text-xs text-zinc-400 mb-3">Connect on Socials</div>
+          {/* Social Icons & CV Download */}
+          <div className="pt-4 border-t border-zinc-900">
+            <div className="text-xs text-zinc-400 mb-3">Links &amp; Documents</div>
             <div className="flex items-center gap-2">
               <a
                 href={portfolioData.personal.github}
@@ -164,13 +181,13 @@ export default function ContactSection() {
                 <LinkedinIcon className="w-4 h-4" />
               </a>
               <a
-                href={portfolioData.personal.twitter}
+                href={portfolioData.personal.resumeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 rounded-xl bg-zinc-900 border border-zinc-800 hover:text-white hover:border-zinc-700 transition-colors"
-                aria-label="Twitter"
+                className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white text-white hover:text-zinc-950 font-semibold text-xs transition-all duration-200"
               >
-                <TwitterIcon className="w-4 h-4" />
+                <FileDown className="w-4 h-4" />
+                <span>Download CV</span>
               </a>
             </div>
           </div>
@@ -187,8 +204,7 @@ export default function ContactSection() {
                 Message Dispatched!
               </h3>
               <p className="text-sm text-zinc-400 max-w-sm mb-6">
-                Thank you for reaching out. I usually review and respond within
-                24 hours.
+                Thank you for reaching out, Pasindu will review and respond promptly.
               </p>
               <button
                 onClick={() => {
@@ -210,7 +226,7 @@ export default function ContactSection() {
                   <input
                     type="text"
                     required
-                    placeholder="e.g. John Doe"
+                    placeholder="e.g. Hiring Manager / Recruiter"
                     value={formData.name}
                     onChange={(e) =>
                       setFormData({ ...formData, name: e.target.value })
@@ -226,7 +242,7 @@ export default function ContactSection() {
                   <input
                     type="email"
                     required
-                    placeholder="e.g. john@example.com"
+                    placeholder="e.g. recruiter@company.com"
                     value={formData.email}
                     onChange={(e) =>
                       setFormData({ ...formData, email: e.target.value })
@@ -242,7 +258,7 @@ export default function ContactSection() {
                 </label>
                 <input
                   type="text"
-                  placeholder="Project inquiry / Full-stack consultation"
+                  placeholder="Software Engineering Internship / Project"
                   value={formData.subject}
                   onChange={(e) =>
                     setFormData({ ...formData, subject: e.target.value })
@@ -258,7 +274,7 @@ export default function ContactSection() {
                 <textarea
                   required
                   rows={4}
-                  placeholder="Tell me about your project, timeline, and goals..."
+                  placeholder="Share details regarding the role, requirements, or conversation topic..."
                   value={formData.message}
                   onChange={(e) =>
                     setFormData({ ...formData, message: e.target.value })

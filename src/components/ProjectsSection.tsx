@@ -9,12 +9,19 @@ import {
   ArrowUpRight,
   TrendingUp,
   FolderGit2,
+  Code2,
 } from "lucide-react";
 
 export default function ProjectsSection() {
   const [activeCategory, setActiveCategory] = useState<string>("All");
 
-  const categories = ["All", "Full-Stack", "Frontend", "Backend / AI", "DevOps & Cloud"];
+  const categories = [
+    "All",
+    "Full-Stack",
+    "AI & Research",
+    "Systems & Desktop",
+    "Embedded & Robotics",
+  ];
 
   const filteredProjects =
     activeCategory === "All"
@@ -27,14 +34,14 @@ export default function ProjectsSection() {
       <div className="flex flex-col items-center text-center mb-12">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-xs font-medium text-cyan-400 mb-3">
           <FolderGit2 className="w-3.5 h-3.5" />
-          <span>Selected Works</span>
+          <span>GitHub Repositories &amp; Engineering Works</span>
         </div>
         <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mb-4">
-          Production Systems &amp; Web Applications
+          Featured Projects &amp; Software Systems
         </h2>
         <p className="text-zinc-400 max-w-xl text-sm sm:text-base">
-          A showcase of mission-critical platforms, developer tooling, and modern
-          web interfaces built with precision.
+          Full-stack web applications, real-time communication systems, AI optimization
+          algorithms, and embedded robotics built across university coursework and open-source work.
         </p>
 
         {/* Category Filters */}
@@ -62,20 +69,20 @@ export default function ProjectsSection() {
             key={project.id}
             className="group relative rounded-3xl bg-zinc-950/70 border border-zinc-800/80 overflow-hidden backdrop-blur-xl flex flex-col justify-between hover:border-zinc-700 transition-all duration-300 hover:shadow-2xl hover:shadow-indigo-500/5 hover:-translate-y-1"
           >
-            {/* Visual Header / Simulated Window */}
+            {/* Visual Header */}
             <div
-              className={`relative h-48 w-full bg-gradient-to-br ${project.gradient} border-b border-zinc-800/70 p-5 flex flex-col justify-between overflow-hidden`}
+              className={`relative h-44 w-full bg-gradient-to-br ${project.gradient} border-b border-zinc-800/70 p-5 flex flex-col justify-between overflow-hidden`}
             >
-              {/* Abstract decorative graphic elements */}
+              {/* Background Pattern */}
               <div className="absolute inset-0 bg-grid-pattern opacity-40" />
               <div className="absolute -right-8 -bottom-8 w-40 h-40 bg-white/5 rounded-full blur-2xl group-hover:scale-125 transition-transform duration-500" />
 
               {/* Top controls in mockup */}
               <div className="relative z-10 flex items-center justify-between">
                 <div className="flex items-center gap-1.5">
-                  <span className="w-2.5 h-2.5 rounded-full bg-white/20" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-white/20" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-white/20" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-white/30" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-white/30" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-white/30" />
                 </div>
 
                 <div className="flex items-center gap-2">
@@ -85,7 +92,7 @@ export default function ProjectsSection() {
                       Featured
                     </span>
                   )}
-                  <span className="px-2.5 py-0.5 rounded-full bg-zinc-900/70 backdrop-blur-md border border-white/10 text-[10px] font-mono text-zinc-300">
+                  <span className="px-2.5 py-0.5 rounded-full bg-zinc-900/80 backdrop-blur-md border border-white/10 text-[10px] font-mono text-zinc-300">
                     {project.category}
                   </span>
                 </div>
@@ -93,7 +100,7 @@ export default function ProjectsSection() {
 
               {/* Title inside card preview */}
               <div className="relative z-10">
-                <h3 className="text-xl font-bold text-white tracking-tight group-hover:text-indigo-200 transition-colors">
+                <h3 className="text-lg font-bold text-white tracking-tight group-hover:text-indigo-200 transition-colors">
                   {project.title}
                 </h3>
                 <p className="text-xs text-zinc-300/90 font-medium line-clamp-1 mt-0.5">
@@ -136,21 +143,27 @@ export default function ProjectsSection() {
                   href={project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 text-xs font-medium text-zinc-400 hover:text-white transition-colors"
+                  className="flex items-center gap-2 text-xs font-semibold px-3 py-1.5 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 hover:text-white hover:bg-zinc-800 transition-all"
                 >
                   <GithubIcon className="w-4 h-4" />
-                  <span>Source Code</span>
+                  <span>View Repository</span>
                 </a>
 
-                <a
-                  href={project.demoUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-1 text-xs font-semibold px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white text-white hover:text-zinc-950 transition-all duration-200"
-                >
-                  <span>Live Preview</span>
-                  <ArrowUpRight className="w-3.5 h-3.5" />
-                </a>
+                {project.demoUrl ? (
+                  <a
+                    href={project.demoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1 text-xs font-semibold px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white text-white hover:text-zinc-950 transition-all duration-200"
+                  >
+                    <span>Live Demo</span>
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </a>
+                ) : (
+                  <span className="text-[11px] font-mono text-zinc-500">
+                    Source Verified
+                  </span>
+                )}
               </div>
             </div>
           </div>

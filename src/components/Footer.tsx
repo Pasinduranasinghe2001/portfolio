@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { portfolioData } from "@/data/portfolioData";
-import { GithubIcon, LinkedinIcon, TwitterIcon } from "@/components/SocialIcons";
+import { GithubIcon, LinkedinIcon } from "@/components/SocialIcons";
 import { ArrowUp, Terminal, Heart } from "lucide-react";
 
 export default function Footer() {
@@ -94,15 +94,6 @@ export default function Footer() {
               aria-label="LinkedIn"
             >
               <LinkedinIcon className="w-4 h-4" />
-            </a>
-            <a
-              href={portfolioData.personal.twitter}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-zinc-500 hover:text-zinc-300 transition-colors"
-              aria-label="Twitter"
-            >
-              <TwitterIcon className="w-4 h-4" />
             </a>
           </div>
         </div>

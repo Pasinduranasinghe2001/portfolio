@@ -66,7 +66,7 @@ export default function Navbar() {
               {portfolioData.personal.name}
             </span>
             <span className="text-[10px] text-zinc-400 font-mono hidden sm:inline-block">
-              {portfolioData.personal.title.split(" ")[0]} Dev
+              Computer Eng &bull; Univ. of Jaffna
             </span>
           </div>
         </Link>
@@ -161,3 +161,4 @@ export default function Navbar() {
     </header>
   );
 }
+

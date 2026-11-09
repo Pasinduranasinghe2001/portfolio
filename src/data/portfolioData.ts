@@ -3,14 +3,12 @@ export interface Project {
   title: string;
   subtitle: string;
   description: string;
-  longDescription?: string;
-  category: "Full-Stack" | "Frontend" | "Backend / AI" | "DevOps & Cloud";
+  category: "Full-Stack" | "AI & Research" | "Systems & Desktop" | "Embedded & Robotics";
   tags: string[];
   metrics?: string;
-  image?: string;
   gradient: string;
   featured: boolean;
-  demoUrl: string;
+  demoUrl?: string;
   githubUrl: string;
 }
 
@@ -19,21 +17,25 @@ export interface SkillCategory {
   iconName: string;
   skills: {
     name: string;
-    level: string; // e.g. "Advanced", "Proficient"
+    level: string;
     highlight?: boolean;
   }[];
 }
 
-export interface Experience {
-  id: string;
-  role: string;
-  company: string;
-  location: string;
-  type: string; // "Full-time", "Contract", etc.
+export interface Education {
+  degree: string;
+  institution: string;
+  faculty?: string;
   period: string;
-  description: string;
-  achievements: string[];
-  technologies: string[];
+  status: string;
+  details: string[];
+}
+
+export interface Membership {
+  role: string;
+  organization: string;
+  badge?: string;
+  status: string;
 }
 
 export interface PortfolioData {
@@ -45,12 +47,15 @@ export interface PortfolioData {
     location: string;
     timezone: string;
     email: string;
+    phone: string;
     bio: string;
     github: string;
     linkedin: string;
-    twitter: string;
     resumeUrl: string;
+    image: string;
   };
+  education: Education[];
+  memberships: Membership[];
   stats: {
     label: string;
     value: string;
@@ -58,225 +63,255 @@ export interface PortfolioData {
   }[];
   skills: SkillCategory[];
   projects: Project[];
-  experiences: Experience[];
-  quickFacts: {
-    icon: string;
-    label: string;
-    value: string;
-  }[];
+  research: {
+    title: string;
+    status: string;
+    area: string;
+    description: string;
+    keyPoints: string[];
+    githubUrl: string;
+  };
 }
 
 export const portfolioData: PortfolioData = {
   personal: {
     name: "Pasindu Ranasinghe",
-    title: "Full-Stack Software Engineer",
-    tagline: "Architecting resilient distributed systems and crafting immersive, fluid web experiences.",
-    availability: "Available for new opportunities & freelance projects",
-    location: "Colombo, Sri Lanka / Remote",
-    timezone: "IST / GMT+5:30",
+    title: "Software Engineering Intern Candidate",
+    tagline: "Computer Engineering Undergraduate at the University of Jaffna with hands-on experience in Full-Stack Web Development, Real-Time Distributed Systems, and AI Research.",
+    availability: "Available for Software Engineering Internship Opportunities",
+    location: "Sri Lanka",
+    timezone: "IST (UTC+5:30)",
     email: "mamepasindu@gmail.com",
-    bio: "Passionate full-stack developer with extensive experience building scalable web applications, robust cloud APIs, and modern interactive user interfaces. Dedicated to clean architecture, high performance, and great user experiences.",
+    phone: "+94 76 453 8580",
+    bio: "Computer Engineering undergraduate at the Faculty of Engineering, University of Jaffna with practical expertise developing full-stack web platforms, client-server architectures, and real-time communication systems. Proficient in Java, Spring Boot, JavaScript, Node.js, Python, and SQL with strong foundations in Data Structures, Algorithms, OOP, and Database Systems. Currently conducting research on deep-learning-based satellite image looting detection.",
     github: "https://github.com/Pasinduranasinghe2001",
-    linkedin: "https://linkedin.com/in/pasinduranasinghe",
-    twitter: "https://twitter.com",
-    resumeUrl: "#contact",
+    linkedin: "https://linkedin.com/in/pasindu-ranasinghe-9a7315326",
+    resumeUrl: "/Pasindu_Ranasinghe_CV.pdf",
+    image: "/profile.jpg",
   },
-  stats: [
-    { label: "Years of Experience", value: "6+", sublabel: "Continuous engineering" },
-    { label: "Production Apps Shipped", value: "32+", sublabel: "From 0 to 1 at scale" },
-    { label: "Monthly Active Users", value: "250K+", sublabel: "Across distributed systems" },
-    { label: "Code Reliability", value: "99.98%", sublabel: "Uptime & test coverage" },
-  ],
-  skills: [
+  education: [
     {
-      category: "Frontend Architecture",
-      iconName: "Layout",
-      skills: [
-        { name: "React 19 / Next.js 15", level: "Advanced", highlight: true },
-        { name: "TypeScript", level: "Advanced", highlight: true },
-        { name: "Tailwind CSS & Shadcn", level: "Advanced", highlight: true },
-        { name: "Framer Motion & WebGL", level: "Proficient" },
-        { name: "State Management (Zustand/Redux)", level: "Advanced" },
-        { name: "Web Vitals & Performance", level: "Advanced" },
+      degree: "B.Sc. (Hons) in Computer Engineering",
+      institution: "University of Jaffna",
+      faculty: "Faculty of Engineering",
+      period: "2023 – Present",
+      status: "Expected Graduation: 2027",
+      details: [
+        "Core Coursework: Software Engineering, Data Structures & Algorithms, Object-Oriented Programming, Database Systems, Computer Networks, Operating Systems, Artificial Intelligence, Machine Learning.",
+        "Undergraduate Research: Deep Learning for Archaeological Looting Detection using Satellite Imagery.",
       ],
     },
     {
-      category: "Backend & Systems",
-      iconName: "Server",
+      degree: "G.C.E. Advanced Level – Physical Science",
+      institution: "R/ Ananda Maithreya Central College (AMCC)",
+      faculty: "Balangoda, Sri Lanka",
+      period: "2021",
+      status: "Physical Science Stream",
+      details: [
+        "Physics: B | Chemistry: B | Combined Mathematics: B",
+        "Qualified for State University Engineering admission.",
+      ],
+    },
+  ],
+  memberships: [
+    {
+      role: "Student Member",
+      organization: "Institute of Electrical and Electronics Engineers (IEEE)",
+      badge: "IEEE",
+      status: "Active Member (Good Standing)",
+    },
+    {
+      role: "Student Member",
+      organization: "Institution of Engineers, Sri Lanka (IESL)",
+      badge: "IESL",
+      status: "Active Member",
+    },
+  ],
+  stats: [
+    { label: "Engineering Degree", value: "B.Sc. (Hons)", sublabel: "Computer Engineering, UoJ" },
+    { label: "GitHub Repositories", value: "10+", sublabel: "Open source & active builds" },
+    { label: "Core Tech Focus", value: "Full-Stack", sublabel: "Spring Boot, Node.js & React" },
+    { label: "Professional Members", value: "IEEE & IESL", sublabel: "Student Member" },
+  ],
+  research: {
+    title: "Looting Detection Using Satellite Images",
+    status: "Undergraduate Research – Ongoing",
+    area: "Deep Learning & Computer Vision",
+    description:
+      "Investigating deep-learning architectures for automated archaeological site looting detection from satellite imagery time series, overcoming temporal observation scarcity.",
+    keyPoints: [
+      "Analyzing the DAFA-LS dataset featuring monthly high-resolution satellite imagery across archaeological sites.",
+      "Developing frame-fusion experiments across different temporal frame counts (K = 1, 2, 3, 5, 8).",
+      "Benchmarking single-frame, change-based, and short-temporal deep learning approaches.",
+      "Evaluating with Precision, Recall, F1-score, ROC-AUC, IoU, and mAP metrics under missing-frame scenarios.",
+    ],
+    githubUrl: "https://github.com/Pasinduranasinghe2001/Research",
+  },
+  skills: [
+    {
+      category: "Programming Languages",
+      iconName: "Code",
       skills: [
-        { name: "Node.js & Bun", level: "Advanced", highlight: true },
-        { name: "Go (Golang)", level: "Proficient", highlight: true },
-        { name: "Python / FastAPI", level: "Advanced" },
-        { name: "RESTful & GraphQL APIs", level: "Advanced" },
-        { name: "gRPC & Protocol Buffers", level: "Proficient" },
-        { name: "WebSocket & SSE Real-Time", level: "Advanced" },
+        { name: "Java", level: "Advanced", highlight: true },
+        { name: "JavaScript / TypeScript", level: "Advanced", highlight: true },
+        { name: "Python", level: "Advanced", highlight: true },
+        { name: "C / C++", level: "Proficient" },
+        { name: "PHP", level: "Proficient" },
+        { name: "SQL", level: "Advanced", highlight: true },
+      ],
+    },
+    {
+      category: "Frameworks & Web Technologies",
+      iconName: "Layout",
+      skills: [
+        { name: "Spring Boot & Spring MVC", level: "Advanced", highlight: true },
+        { name: "React & Next.js", level: "Advanced", highlight: true },
+        { name: "Node.js & Express", level: "Advanced", highlight: true },
+        { name: "WebRTC & Socket.IO", level: "Advanced", highlight: true },
+        { name: "RESTful APIs", level: "Advanced", highlight: true },
+        { name: "HTML5, CSS3 & Tailwind", level: "Advanced" },
       ],
     },
     {
       category: "Databases & Storage",
       iconName: "Database",
       skills: [
-        { name: "PostgreSQL & pgvector", level: "Advanced", highlight: true },
-        { name: "Redis & Upstash Caching", level: "Advanced", highlight: true },
-        { name: "MongoDB & DocumentDB", level: "Proficient" },
-        { name: "Prisma & Drizzle ORM", level: "Advanced" },
-        { name: "Supabase & Firebase", level: "Advanced" },
-        { name: "Elasticsearch", level: "Proficient" },
+        { name: "MySQL", level: "Advanced", highlight: true },
+        { name: "MongoDB", level: "Advanced", highlight: true },
+        { name: "Database Design & Normalization", level: "Advanced" },
+        { name: "CRUD Operations", level: "Advanced" },
       ],
     },
     {
-      category: "Cloud, DevOps & Tooling",
-      iconName: "Cloud",
+      category: "Engineering Concepts & Tooling",
+      iconName: "Server",
       skills: [
-        { name: "Docker & Containerization", level: "Advanced", highlight: true },
-        { name: "AWS (ECS, Lambda, S3, RDS)", level: "Advanced", highlight: true },
-        { name: "Kubernetes & Helm", level: "Working Knowledge" },
-        { name: "GitHub Actions CI/CD", level: "Advanced" },
-        { name: "Terraform Infrastructure as Code", level: "Proficient" },
-        { name: "Datadog & OpenTelemetry Monitoring", level: "Proficient" },
+        { name: "Data Structures & Algorithms", level: "Advanced", highlight: true },
+        { name: "Object-Oriented Programming (OOP)", level: "Advanced", highlight: true },
+        { name: "Client-Server Architecture", level: "Advanced" },
+        { name: "Git & GitHub Version Control", level: "Advanced", highlight: true },
+        { name: "Postman & API Testing", level: "Advanced" },
+        { name: "Maven & IntelliJ IDEA", level: "Proficient" },
       ],
     },
   ],
   projects: [
     {
-      id: "project-1",
-      title: "DevPulse Platform",
-      subtitle: "Real-Time Observability & Incident Response Hub",
+      id: "equiphub",
+      title: "EQuipHub – Equipment Request Platform",
+      subtitle: "Enterprise Equipment Management & Approval Workflow System",
       description:
-        "High-performance distributed telemetry collector and visual incident triaging workspace processing over 10M events per day with real-time WebSocket streams.",
+        "Full-stack web application supporting equipment requests, approval hierarchies, user privilege management, and inventory-related operations. Built backend RESTful APIs with Spring Boot and integrated data persistence with MongoDB and MySQL in a 5-member team.",
       category: "Full-Stack",
-      tags: ["Next.js 15", "TypeScript", "Go", "PostgreSQL", "Kafka", "Tailwind CSS"],
-      metrics: "Reduced mean time to resolve (MTTR) by 42% for engineering teams",
+      tags: ["Spring Boot", "React", "MongoDB", "MySQL", "REST APIs", "Git"],
+      metrics: "Collaborative 5-member team delivery with dual SQL/NoSQL data persistence",
       gradient: "from-blue-600/30 via-indigo-600/20 to-purple-700/30",
       featured: true,
-      demoUrl: "https://example.com/devpulse",
-      githubUrl: "https://github.com/example/devpulse",
+      githubUrl: "https://github.com/sasindumal/EquipHub",
     },
     {
-      id: "project-2",
-      title: "HyperFlow AI",
-      subtitle: "Multi-Agent Workflow Automation Canvas",
+      id: "webrtc-platform",
+      title: "WebRTC Video Conferencing Platform",
+      subtitle: "Real-Time Multi-Party Video & Audio Communication",
       description:
-        "Interactive node-based canvas for orchestrating autonomous LLM pipelines, connecting APIs, vector embeddings, and background workers with sub-100ms UI responsiveness.",
+        "Real-time video conferencing application with instant meeting room generation, attendee joining flow, waiting room access control, and low-latency peer-to-peer audio/video streaming via WebRTC with Socket.IO signaling.",
       category: "Full-Stack",
-      tags: ["React Flow", "Next.js", "Python FastAPI", "LangChain", "Redis", "Pinecone"],
-      metrics: "Empowered 12,000+ active automations with 99.99% queue success rate",
-      gradient: "from-emerald-600/30 via-teal-600/20 to-cyan-700/30",
+      tags: ["Node.js", "WebRTC", "Socket.IO", "JavaScript", "P2P Streaming"],
+      metrics: "Sub-second peer negotiation with real-time room signaling",
+      gradient: "from-cyan-600/30 via-teal-600/20 to-indigo-700/30",
       featured: true,
-      demoUrl: "https://example.com/hyperflow",
-      githubUrl: "https://github.com/example/hyperflow",
+      githubUrl: "https://github.com/Pasinduranasinghe2001/WebRTC",
     },
     {
-      id: "project-3",
-      title: "OmniPay Core",
-      subtitle: "Zero-Downtime Multi-Currency Settlement Engine",
+      id: "apparelflow-erp",
+      title: "ApparelFlow-ERP",
+      subtitle: "Comprehensive Manufacturing & Production Resource Planning",
       description:
-        "PCI-DSS compliant payment gateway adapter with distributed lock synchronization, idempotency guarantees, and automated webhook retries.",
-      category: "Backend / AI",
-      tags: ["Go", "gRPC", "PostgreSQL", "Docker", "Prometheus", "Tailwind CSS"],
-      metrics: "Processed $14M+ in transaction volume with zero duplicate charges",
+        "Enterprise Resource Planning platform tailored for garment and apparel manufacturing businesses to manage work-in-progress orders, material tracking, employee scheduling, and export compliance.",
+      category: "Full-Stack",
+      tags: ["Java", "Spring Boot", "MySQL", "REST APIs", "Enterprise ERP"],
+      metrics: "Structured modular architecture for garment production workflows",
+      gradient: "from-emerald-600/30 via-green-600/20 to-teal-700/30",
+      featured: true,
+      githubUrl: "https://github.com/Pasinduranasinghe2001/ApparelFlow-ERP",
+    },
+    {
+      id: "research-satellite",
+      title: "Archaeological Looting Detection (Research)",
+      subtitle: "Deep Learning for Satellite Imagery Time Series",
+      description:
+        "Undergraduate research project utilizing deep learning models on the DAFA-LS dataset to detect archaeological looting. Implements single-frame, change-based, and short-temporal multi-frame fusion (K = 1, 2, 3, 5, 8).",
+      category: "AI & Research",
+      tags: ["Python", "Deep Learning", "Computer Vision", "Satellite Imagery", "PyTorch"],
+      metrics: "Evaluated using Precision, Recall, F1, ROC-AUC, IoU, and mAP",
+      gradient: "from-purple-600/30 via-pink-600/20 to-rose-700/30",
+      featured: true,
+      githubUrl: "https://github.com/Pasinduranasinghe2001/Research",
+    },
+    {
+      id: "timetabling-optimization",
+      title: "Intelligent Timetabling System",
+      subtitle: "Automated Constraint Optimization with Simulated Annealing",
+      description:
+        "Intelligent heuristic scheduling software resolving complex constraint satisfaction problems across lecturer availability, hall capacities, student batches, and course-ordering constraints with a Tkinter GUI.",
+      category: "AI & Research",
+      tags: ["Python", "Simulated Annealing", "Heuristics", "Constraint Optimization", "Tkinter"],
+      metrics: "Iterative temperature cooling algorithm guaranteeing feasible schedules",
       gradient: "from-amber-600/30 via-orange-600/20 to-red-700/30",
-      featured: true,
-      demoUrl: "https://example.com/omnipay",
-      githubUrl: "https://github.com/example/omnipay",
-    },
-    {
-      id: "project-4",
-      title: "Aura UI Design System",
-      subtitle: "Accessible, Tokenized Component Suite for Modern Web",
-      description:
-        "Comprehensive open-source React component library featuring 40+ primitives, dark-mode first aesthetic, full keyboard navigation, and micro-interactions.",
-      category: "Frontend",
-      tags: ["React 19", "Tailwind CSS", "Framer Motion", "Storybook", "TypeScript"],
-      metrics: "Over 3,500 GitHub stars and 80k weekly NPM downloads",
-      gradient: "from-fuchsia-600/30 via-pink-600/20 to-rose-700/30",
       featured: false,
-      demoUrl: "https://example.com/aura-ui",
-      githubUrl: "https://github.com/example/aura-ui",
+      githubUrl: "https://github.com/Pasinduranasinghe2001/Designing-an-Intelligent-Timetabling-System",
     },
     {
-      id: "project-5",
-      title: "KubePilot Dashboard",
-      subtitle: "Intelligent Cluster Cost & Health Visualizer",
+      id: "classchat",
+      title: "ClassChat – Socket Chat System",
+      subtitle: "Multi-Client Desktop Messaging Application",
       description:
-        "Lightweight Kubernetes cluster observer that pinpoints resource bottlenecks, orphaned volumes, and optimizes cloud spending through actionable heuristics.",
-      category: "DevOps & Cloud",
-      tags: ["TypeScript", "Next.js", "Kubernetes API", "Chart.js", "Tailwind"],
-      metrics: "Average 28% reduction in monthly cloud infrastructure spend",
-      gradient: "from-cyan-600/30 via-sky-600/20 to-blue-700/30",
+        "Desktop client-server chat application enabling instant multi-user message distribution through robust Java socket programming, concurrent multi-threading, and a customized Java Swing interface.",
+      category: "Systems & Desktop",
+      tags: ["Java", "Socket Programming", "Multi-threading", "Java Swing", "OOP"],
+      metrics: "Concurrent client socket handling with instant message broadcasting",
+      gradient: "from-sky-600/30 via-blue-600/20 to-indigo-700/30",
       featured: false,
-      demoUrl: "https://example.com/kubepilot",
-      githubUrl: "https://github.com/example/kubepilot",
+      githubUrl: "https://github.com/Pasinduranasinghe2001/ClassChat",
     },
     {
-      id: "project-6",
-      title: "Synthetix Voice Studio",
-      subtitle: "Browser-based Real-time Audio Processing & Synthesis",
+      id: "hostel-system",
+      title: "Hostel Management System",
+      subtitle: "Database-Driven Student Accommodation Management",
       description:
-        "Low-latency WebAudio engine for multi-track waveform manipulation, AI voice modulation, and instant lossless export directly on the client edge.",
-      category: "Frontend",
-      tags: ["Web Audio API", "WebAssembly", "TypeScript", "Tailwind CSS", "Canvas"],
-      metrics: "Under 12ms audio buffer latency on standard desktop browsers",
-      gradient: "from-violet-600/30 via-purple-600/20 to-indigo-800/30",
+        "Web application managing university residential housing, room allocation, student check-ins, fee records, and administrative actions with structured relational database modeling.",
+      category: "Full-Stack",
+      tags: ["PHP", "MySQL", "JavaScript", "HTML5", "CSS3", "CRUD"],
+      metrics: "Complete relational normalization and administrative dashboards",
+      gradient: "from-teal-600/30 via-cyan-600/20 to-blue-700/30",
       featured: false,
-      demoUrl: "https://example.com/synthetix",
-      githubUrl: "https://github.com/example/synthetix",
-    },
-  ],
-  experiences: [
-    {
-      id: "exp-1",
-      role: "Lead Full-Stack Engineer",
-      company: "Veloce Technologies",
-      location: "San Francisco, CA (Remote)",
-      type: "Full-time",
-      period: "2023 - Present",
-      description:
-        "Spearheading the core product architecture, managing end-to-end delivery of customer-facing dashboards and high-throughput ingestion pipelines.",
-      achievements: [
-        "Led migration from legacy monolith to Next.js 15 App Router and microservices, slashing initial page load times by 55%.",
-        "Engineered real-time collaboration engine using WebSockets and Redis Pub/Sub, supporting 10,000 concurrent sessions.",
-        "Mentored a team of 7 engineers, instituted automated CI/CD checks, and achieved 92% unit/integration test coverage.",
-      ],
-      technologies: ["Next.js", "TypeScript", "Go", "PostgreSQL", "Redis", "Docker", "AWS"],
+      githubUrl: "https://github.com/Pasinduranasinghe2001/hostel-management-system",
     },
     {
-      id: "exp-2",
-      role: "Senior Software Engineer",
-      company: "Strata Cloud Systems",
-      location: "Austin, TX",
-      type: "Full-time",
-      period: "2021 - 2023",
+      id: "smart-line-robot",
+      title: "Smart Line Follower Robot",
+      subtitle: "Autonomous Line Tracking with PID Motor Steering",
       description:
-        "Designed and maintained resilient REST and GraphQL APIs powering the enterprise multi-tenant analytics suite.",
-      achievements: [
-        "Architected an asynchronous job queue processing 5M+ background tasks daily with zero message loss.",
-        "Optimized complex PostgreSQL database queries and indexing strategies, decreasing P99 query latency from 850ms to 95ms.",
-        "Built dynamic data visualization components with D3 and React that enabled real-time cluster monitoring.",
-      ],
-      technologies: ["React", "Node.js", "PostgreSQL", "GraphQL", "Docker", "Terraform"],
+        "Autonomous mobile robot engineered with infrared reflectance sensor arrays, PID feedback control loop, and differential motor drivers for high-speed precision track navigation.",
+      category: "Embedded & Robotics",
+      tags: ["Arduino", "Embedded C++", "PID Control", "Infrared Sensors", "Robotics"],
+      metrics: "Real-time sensor calibration and proportional-integral-derivative control",
+      gradient: "from-violet-600/30 via-indigo-600/20 to-cyan-700/30",
+      featured: false,
+      githubUrl: "https://github.com/Pasinduranasinghe2001/SmartLineFollowerRobot",
     },
     {
-      id: "exp-3",
-      role: "Full-Stack Developer",
-      company: "Nexus Labs",
-      location: "San Jose, CA",
-      type: "Full-time",
-      period: "2019 - 2021",
+      id: "java-game",
+      title: "Gold Bomb – Java 2D Game",
+      subtitle: "Interactive Arcade Game with AudioSystem Integration",
       description:
-        "Built modern web applications, client portals, and internal developer tooling for venture-backed startup clients.",
-      achievements: [
-        "Delivered 14 production web applications on strict timelines with 100% on-schedule delivery rate.",
-        "Integrated third-party payment gateways (Stripe, PayPal) and identity providers (OAuth2, Auth0).",
-        "Pioneered component library standards that reduced frontend development time by 30% across projects.",
-      ],
-      technologies: ["React", "TypeScript", "Node.js", "Express", "MongoDB", "Tailwind CSS"],
+        "Object-oriented 2D arcade game built in Java 21 with Swing and AWT. Features randomized item generation, timed event loops, dynamic score tracking, collision detection, and background music via Java Clip APIs.",
+      category: "Systems & Desktop",
+      tags: ["Java 21", "Java Swing", "AWT", "AudioSystem API", "Game Loop"],
+      metrics: "60 FPS event-driven gameplay with real-time collision calculation",
+      gradient: "from-yellow-600/30 via-amber-600/20 to-orange-700/30",
+      featured: false,
+      githubUrl: "https://github.com/Pasinduranasinghe2001/java-Game",
     },
-  ],
-  quickFacts: [
-    { icon: "Terminal", label: "Favorite Stack", value: "Next.js + TypeScript + Go + Postgres" },
-    { icon: "Sparkles", label: "Philosophy", value: "Simple interfaces, robust systems" },
-    { icon: "Coffee", label: "Coffee Fuel", value: "3 cups of dark roast / day" },
-    { icon: "MapPin", label: "Base", value: "San Francisco & Remote" },
   ],
 };
