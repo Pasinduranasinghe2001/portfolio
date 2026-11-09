@@ -2,7 +2,8 @@
 
 An ultra-modern, high-performance personal portfolio built for Full-Stack Software Engineers. Designed with a sleek Dark Mode aesthetic, interactive Bento grid, dynamic cursor glow aura, live interactive code simulation, and silky-smooth micro-interactions.
 
-🌐 **Live GitHub Repository**: [https://github.com/Pasinduranasinghe2001/portfolio](https://github.com/Pasinduranasinghe2001/portfolio)
+🌐 **Live URL**: [https://portfolio-seven-woad-24.vercel.app](https://portfolio-seven-woad-24.vercel.app)  
+📦 **GitHub Repository**: [https://github.com/Pasinduranasinghe2001/portfolio](https://github.com/Pasinduranasinghe2001/portfolio)
 
 ---
 

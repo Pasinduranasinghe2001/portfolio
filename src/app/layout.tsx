@@ -14,21 +14,35 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: `${portfolioData.personal.name} | ${portfolioData.personal.title}`,
+  metadataBase: new URL("https://portfolio-seven-woad-24.vercel.app"),
+  title: `${portfolioData.personal.name} | Computer Engineering Undergraduate & Full-Stack Developer`,
   description: portfolioData.personal.tagline,
   keywords: [
+    "Pasindu Ranasinghe",
+    "Computer Engineering",
+    "University of Jaffna",
     "Full-Stack Developer",
-    "Software Engineer",
-    "Next.js",
+    "Software Engineering Intern",
+    "Spring Boot",
     "React",
-    "TypeScript",
+    "Next.js",
     "Node.js",
-    "Portfolio",
+    "WebRTC",
   ],
   authors: [{ name: portfolioData.personal.name }],
   openGraph: {
-    title: `${portfolioData.personal.name} | ${portfolioData.personal.title}`,
+    title: `${portfolioData.personal.name} | Portfolio`,
     description: portfolioData.personal.tagline,
+    url: "https://portfolio-seven-woad-24.vercel.app",
+    siteName: `${portfolioData.personal.name} Portfolio`,
+    images: [
+      {
+        url: "/profile.jpg",
+        width: 800,
+        height: 1200,
+        alt: portfolioData.personal.name,
+      },
+    ],
     type: "website",
   },
 };
